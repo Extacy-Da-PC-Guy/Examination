@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Coastal Villa - Enhanced Version</title>
+
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+
+<body>
+<a-scene shadow="type: pcfsoft">
+
+    <a-assets>
+        <a-asset-item src="./villa_de_plage/scene.gltf" id="villa"></a-asset-item>
+        <img src="grass.jpg" id="grass">
+        <img src="clear-sunny-sky.jpg" id="sky">
+        <img src="https://i.imgur.com/w9vXSTK.jpg" id="stone-texture">
+    </a-assets>
+
+    <a-sky src="#sky"></a-sky>
+
+    <a-plane src="#grass"
+             position="0 -0.1 0"
+             rotation="-90 0 0"
+             width="500"
+             height="500"
+             repeat="100 100"
+             shadow="receive: true">
+    </a-plane>
+
+    <a-entity gltf-model="#villa"
+              position="0 0 0"
+              scale="7 7 7"
+              shadow="cast: true; receive: true">
+    </a-entity>
+
+    <a-camera position="80 15 80"
+              rotation="-10 45 0"
+              wasd-controls="acceleration: 100"
+              look-controls>
+        <a-cursor color="#FFD700"></a-cursor>
+    </a-camera>
+
+    <a-plane src="#stone-texture"
+             position="13 0.05 71"
+             rotation="-90 0 0"
+             width="40"
+             height="50"
+             repeat="4 4">
+    </a-plane>
+
+    <a-box position="13 -0.5 71"
+           width="22"
+           height="1.5"
+           depth="32"
+           color="#00BFFF"
+           opacity="0.7"
+           material="transparent: true; side: double">
+    </a-box>
+
+    <a-box position="0 1 120" width="160" height="2" depth="0.5" color="#555"></a-box> <a-box position="80 1 40" width="0.5" height="2" depth="160" color="#555"></a-box> <a-box position="-80 1 40" width="0.5" height="2" depth="160" color="#555"></a-box> <a-box position="28 0.3 65" width="2" height="0.5" depth="5" color="#FFF"></a-box>
+    <a-box position="32 0.3 65" width="2" height="0.5" depth="5" color="#FFF"></a-box>
+
+    <a-plane color="#333"
+             position="0 0.02 60"
+             rotation="-90 0 0"
+             width="12"
+             height="120">
+    </a-plane>
+
+    <a-plane color="#444"
+             position="-35 0.03 20"
+             rotation="-90 0 0"
+             width="25"
+             height="25">
+    </a-plane>
+
+    <a-light type="ambient" intensity="0.5"></a-light>
+
+    <a-light type="directional"
+             intensity="1.0"
+             position="50 100 50"
+             castShadow="true"
+             shadow-camera-left="-100"
+             shadow-camera-right="100"
+             shadow-camera-top="100"
+             shadow-camera-bottom="-100">
+    </a-light>
+
+    <a-light type="point" 
+             color="#00FFFF" 
+             intensity="0.8" 
+             distance="15" 
+             position="13 -0.2 71">
+    </a-light>
+
+    <a-cylinder position="6 1.5 45" radius="0.2" height="3" color="#222">
+        <a-sphere position="0 1.6 0" radius="0.4" color="yellow">
+            <a-light type="point" intensity="1" distance="10" color="#FFD700"></a-light>
+        </a-sphere>
+    </a-cylinder>
+
+    <a-cylinder position="-6 1.5 45" radius="0.2" height="3" color="#222">
+        <a-sphere position="0 1.6 0" radius="0.4" color="yellow">
+            <a-light type="point" intensity="1" distance="10" color="#FFD700"></a-light>
+        </a-sphere>
+    </a-cylinder>
+
+</a-scene>
+</body>
+</html>
